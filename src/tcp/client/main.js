@@ -72,5 +72,4 @@ app.whenReady().then(() => {
 
     window.webContents.setAudioMuted(true)
     window.webContents.setUserAgent(`pongccheatstcpclient/${require('./package.json').version}`)
-    window.webContents.openDevTools()
 })
