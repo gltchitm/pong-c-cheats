@@ -16,7 +16,7 @@ from daemon import DaemonSession, safe_disconnect
 server = socket(AF_INET, SOCK_STREAM)
 
 server.setsockopt(SOL_SOCKET, SO_REUSEADDR, 1)
-server.bind(('127.0.0.1', 13950))
+server.bind(('0.0.0.0', 13950))
 server.listen(1)
 
 private_key = RSA.generate(1024)
