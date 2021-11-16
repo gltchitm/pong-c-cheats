@@ -1,0 +1,90 @@
+@font-face {
+    font-family: 'Lato';
+    src: url('../vendor/font/Lato-Regular.ttf');
+}
+body {
+    padding: 0;
+    margin: 0;
+    overflow: hidden;
+    user-select: none;
+}
+.view {
+    height: 100vh;
+    width: 100vw;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+    padding: 15px;
+}
+.spinner {
+    width: 100px;
+    height: 100px;
+}
+.loading {
+    position: absolute;
+    height: 100vh;
+    width: 100vw;
+    background-color: rgba(0, 0, 0, 0.8);
+}
+
+.slide-out-forward {
+    position: absolute;
+    animation: slide-out-forward 0.2s;
+    animation-timing-function: ease-in-out;
+}
+.slide-in-forward {
+    position: absolute;
+    animation: slide-in-forward 0.2s;
+    animation-timing-function: ease-in-out;
+}
+.slide-out-backward {
+    position: absolute;
+    animation: slide-out-backward 0.2s;
+    animation-timing-function: ease-in-out;
+}
+.slide-in-backward {
+    position: absolute;
+    animation: slide-in-backward 0.2s;
+    animation-timing-function: ease-in-out;
+}
+@keyframes slide-out-forward {
+    from {
+        right: 0;
+        opacity: 1;
+    }
+    to {
+        right: 100%;
+        opacity: 0;
+    }
+}
+@keyframes slide-in-forward {
+    from {
+        right: -100%;
+        opacity: 0;
+    }
+    to {
+        right: 0;
+        opacity: 1;
+    }
+}
+@keyframes slide-out-backward {
+    from {
+        left: 0;
+        opacity: 1;
+    }
+    to {
+        left: 100%;
+        opacity: 0;
+    }
+}
+@keyframes slide-in-backward {
+    from {
+        left: -100%;
+        opacity: 0;
+    }
+    to {
+        left: 0;
+        opacity: 1;
+    }
+}

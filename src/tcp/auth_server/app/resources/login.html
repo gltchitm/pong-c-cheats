@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+        <link rel="stylesheet" href="https://bootswatch.com/5/slate/bootstrap.min.css" />
+        <title>Pong C Cheats TCP Auth Server &mdash; Login</title>
+        <style>
+            .form {
+                width: 300px;
+            }
+        </style>
+    </head>
+    <body class="vh-100 vw-100 d-flex align-items-center justify-content-center">
+        <div class="form">
+            <h1 class="d-block text-center">Login</h1>
+            <noscript>
+                <div class="alert alert-danger text-center">
+                    JavaScript is required to use this app.
+                </div>
+            </noscript>
+            <div class="alert alert-warning text-center" id="message" hidden></div>
+            <label class="d-block mb-3">
+                Username
+                <input type="text" id="username" class="form-control" />
+            </label>
+            <label class="d-block mb-3">
+                Password
+                <input type="password" id="password" class="form-control" />
+            </label>
+            <div class="d-grid">
+                <button class="btn btn-primary mb-2" id="login">Login</button>
+                <a href="/signup" class="text-center">Signup</a>
+            </div>
+        </div>
+        <script>
+            const loginButton = document.querySelector('#login')
+            const usernameInput = document.querySelector('#username')
+            const passwordInput = document.querySelector('#password')
+            const messageAlert = document.querySelector('#message')
+
+            loginButton.addEventListener('click', () => {
+                loginButton.disabled = true
+                messageAlert.hidden = true
+
+                fetch('/api/web/login', {
+                    method: 'POST',
+                    headers: {
+                        'Content-Type': 'application/json'
+                    },
+                    body: JSON.stringify({
+                        username: usernameInput.value,
+                        password: passwordInput.value
+                    })
+                }).then(res => {
+                    if (res.ok) {
+                        window.location.href = 'portal'
+                    } else {
+                        res.json().then(({ message }) => {
+                            messageAlert.hidden = false
+                            messageAlert.innerText = message
+                        })
+                    }
+                }).catch(({ message }) => {
+                    messageAlert.hidden = false
+                    messageAlert.innerText = message
+                }).finally(() => {
+                    loginButton.disabled = false
+                })
+            })
+        </script>
+    </body>
+</html>

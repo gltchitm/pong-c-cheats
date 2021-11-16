@@ -1,0 +1,7 @@
+const SIZEOF_BYTE = 8
+
+const SIZEOF_INT_32 = 32 / SIZEOF_BYTE
+const SIZEOF_INT_16 = 16 / SIZEOF_BYTE
+const SIZEOF_BOOL = 1
+
+module.exports = { SIZEOF_INT_32, SIZEOF_INT_16, SIZEOF_BOOL }

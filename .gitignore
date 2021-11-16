@@ -1,0 +1,12 @@
+.vscode/
+build/
+node_modules/
+src/web/client/public/build/
+.venv/
+__pycache__/
+target/
+.classpath
+.project
+.settings/
+database.sqlite3
+.DS_Store

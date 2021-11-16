@@ -1,0 +1,16 @@
+[package]
+name = "pongccheatstcpclient-native"
+version = "1.0.0"
+edition = "2021"
+
+[lib]
+crate-type = ["cdylib"]
+
+[dependencies]
+napi = "1.7.8"
+napi-derive = "1.1.1"
+chacha20poly1305 = "0.9.0"
+getrandom = "0.2.3"
+
+[build-dependencies]
+napi-build = "1.1.1"
