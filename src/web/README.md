@@ -21,7 +21,7 @@ While pongccheatsweb can be used on other devices, pongccheatstcp is better for 
 This documentation describes the WebSocket wrapper over pongccheatsd that pongccheatsdweb provides.
 
 ## Design
-Unlike pongccheatstcp, pongccheatsweb does entirely wrap pongccheatsd. Rather, it acts as a transparent proxy / bridge between a client and pongccheatsd, allowing the client to connect to the Unix domain socket over the internet while still requiring it to implement the raw pongccheatsd protocol (documentation for which can be found [here](../daemon/README.md#documentation)).
+Unlike pongccheatstcp, pongccheatsweb does not entirely wrap pongccheatsd. Rather, it acts as a transparent proxy / bridge between a client and pongccheatsd, allowing the client to connect to the Unix domain socket over the internet while still requiring it to implement the raw pongccheatsd protocol (documentation for which can be found [here](../daemon/README.md#documentation)).
 
 ## Format
 The WebSocket is located at the address `localhost:13948/ws`. All packets are sent in JSON.
