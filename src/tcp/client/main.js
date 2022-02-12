@@ -1,4 +1,4 @@
-const { app, screen, BrowserWindow } = require('electron')
+const { app, BrowserWindow } = require('electron')
 const path = require('path')
 const { fileURLToPath, pathToFileURL, URL } = require('url')
 
@@ -16,8 +16,6 @@ app.on('web-contents-created', (_, contents) => {
 })
 
 app.whenReady().then(() => {
-    const scaleFactor = screen.getPrimaryDisplay().scaleFactor
-
     const window = new BrowserWindow({
         width: 540,
         height: 330,
@@ -28,8 +26,7 @@ app.whenReady().then(() => {
             images: false,
             webgl: false,
             disableDialogs: true,
-            enableWebSQL: false,
-            zoomFactor: 2 - scaleFactor
+            enableWebSQL: false
         }
     })
 

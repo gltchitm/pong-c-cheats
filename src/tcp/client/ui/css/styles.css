@@ -2,6 +2,9 @@
     font-family: 'Lato';
     src: url('../vendor/font/Lato-Regular.ttf');
 }
+:root {
+    font-size: 14px;
+}
 body {
     padding: 0;
     margin: 0;
