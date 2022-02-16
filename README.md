@@ -3,7 +3,7 @@ Pong C Cheats allows you to modify scores in [Pong C](https://github.com/gltchit
 
 > ***WARNING***: Using this program can ruin the Pong C experience. It is for educational purposes only.
 
-> ***WARNING***: This project only works with Pong C, **not** Pong RS
+> ***WARNING***: This project only works with Pong C, **not** Pong RS or Pong Go
 
 ## Project Components
 This project is not one program; rather, it is a collection of components designed to be used together to achieve the end goal. These components can be divided into two categories: cheating components, which actually do the modification of scores, and clients, which interface with a cheating component to provide a convienent control panel. All the cheating components and clients included in this project are listed below.
