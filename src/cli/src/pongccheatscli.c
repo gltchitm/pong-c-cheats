@@ -9,7 +9,7 @@
 #include <sys/user.h>
 #include <sys/reg.h>
 
-#define DRAW_SCOREBOARD_OFFSET 0x1e50
+#define DRAW_SCOREBOARD_OFFSET 0x1f80
 
 int parse_score(int argc, char* score_str) {
     if (argc < 3) {
