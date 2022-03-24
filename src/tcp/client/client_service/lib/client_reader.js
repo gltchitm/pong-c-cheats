@@ -6,25 +6,26 @@ class ClientReader {
         this.client = client
     }
     async readBytes(bytes) {
-        let buffer = Buffer.alloc(0)
+        let result = Buffer.alloc(0)
 
-        let readBytes = 0
-        while (readBytes < bytes) {
-            const byte = this.client.read(1)
+        let remaining = bytes
 
-            if (byte === null) {
-                if (this.client.readyState === 'closed') {
-                    throw new Error('Connection closed by peer.')
-                }
+        while (remaining) {
+            const buffer = await this.#socket.read(size)
 
-                await new Promise(res => this.client.once('readable', res))
+            if (buffer === null) {
+                await new Promise(res => this.#socket.once('readable', res))
+            } else if ((remaining + buffer.length) < size) {
+                throw new Error('Connection closed by peer.')
+            } else if (remaining - buffer.length < 0) {
+                throw new Error('Too much data.')
             } else {
-                buffer = Buffer.concat([buffer, byte])
-                readBytes++
+                result = Buffer.concat([result, buffer])
+                remaining -= buffer.length
             }
         }
 
-        return buffer
+        return result
     }
     async readBuffer() {
         return (await this.readBytes(await this.readUInt16()))
