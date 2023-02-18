@@ -11,11 +11,11 @@ class ClientReader {
         let remaining = bytes
 
         while (remaining) {
-            const buffer = await this.#socket.read(size)
+            const buffer = await this.client.read(bytes)
 
             if (buffer === null) {
-                await new Promise(res => this.#socket.once('readable', res))
-            } else if ((remaining + buffer.length) < size) {
+                await new Promise(res => this.client.once('readable', res))
+            } else if ((remaining + buffer.length) < bytes) {
                 throw new Error('Connection closed by peer.')
             } else if (remaining - buffer.length < 0) {
                 throw new Error('Too much data.')
