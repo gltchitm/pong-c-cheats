@@ -62,8 +62,6 @@ int main(int argc, char* argv[]) {
         pid_arr[i++] = ch;
     }
 
-    fclose(process);
-
     pid_t pid;
     sscanf(pid_arr, "%d", &pid);
 
